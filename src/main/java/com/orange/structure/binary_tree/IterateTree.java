@@ -1,10 +1,6 @@
 package com.orange.structure.binary_tree;
 
 
-import ch.qos.logback.core.net.SyslogOutputStream;
-import com.sun.org.apache.xpath.internal.SourceTree;
-
-import javax.swing.tree.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -60,6 +56,8 @@ public class IterateTree {
         recursionFront(nodeTree.left);
         recursionFront(nodeTree.right);
     }
+    //循环
+    // 中  左  右
     public void IteratorFront(NodeTree nodeTree){
         System.out.println(nodeTree);
         stack.push(nodeTree);
@@ -91,31 +89,32 @@ public class IterateTree {
     }
     private Stack<NodeTree> stack = new Stack<>();
 
-    //循环
-    public void iteratorMiddle(NodeTree nodeTree) {
-        stack.push(nodeTree);
-        NodeTree curr = nodeTree.left;
-        while(null != curr) {
-            stack.push(curr);
-            curr = curr.left;
-        }
-
-        while(!stack.isEmpty()) {
-            NodeTree current = stack.pop();
-            System.out.println(current.data);
-            if(null != current.right) {
-                stack.push(current.right);
-                current = current.right.left;
-                while(null != current) {
-                    stack.push(current);
-                    current = current.left;
-                }
-            }
-        }
-
-    }
+    //循环--自己写的，太麻烦了
+//    public void iteratorMiddle(NodeTree nodeTree) {
+//        stack.push(nodeTree);
+//        NodeTree curr = nodeTree.left;
+//        while(null != curr) {
+//            stack.push(curr);
+//            curr = curr.left;
+//        }
+//
+//        while(!stack.isEmpty()) {
+//            NodeTree current = stack.pop();
+//            System.out.println(current.data);
+//            if(null != current.right) {
+//                stack.push(current.right);
+//                current = current.right.left;
+//                while(null != current) {
+//                    stack.push(current);
+//                    current = current.left;
+//                }
+//            }
+//        }
+//
+//    }
     /**
-     * 另一种方式是西安
+     * 排序： 左 中  右
+     *
      */
     public void IteratorMiddle2(NodeTree root){
         NodeTree curr = root;
@@ -134,6 +133,7 @@ public class IterateTree {
         }
     }
 
+
     /**
      * 后序遍历
      * 先左 后右  再中
@@ -149,29 +149,57 @@ public class IterateTree {
     }
 
     /**
-     * 有问题，后面再改再看
+     * 后续排序
+     * 这个方式是前序排序的一种变形，前序是 中 左 右。。这个是中  右  左，然后通过stack反序输出
      * @param nodeTree
      */
     public void iteratorBehind(NodeTree nodeTree){
         stack.push(nodeTree);
-        NodeTree curr = nodeTree;
+        Stack<NodeTree> outPut =  new Stack<>();
+        NodeTree curr ;
         while(!stack.isEmpty()) {
 
-            while(null != curr.left){
-                stack.push(curr.left);
-                curr = curr.left;
-            }
             curr = stack.pop();
+            outPut.push(curr);
 
-            if(curr.right == null) {
-                System.out.println(curr.data);
-            } else {
-                curr = curr.right;
-                stack.push(curr);
+            if(null != curr.left){
+                stack.push(curr.left);
             }
+            if(null != curr.right) {
+                stack.push(curr.right);
+            }
+        }
+        while (outPut.size() > 0) {
 
+            System.out.println(outPut.pop().data);
         }
 
+    }
+
+    /**
+     * -----后序排序（***********这个方法不需要记）
+     * 这个是一种方法，实际排序是 中  右  左，通过stack反序输出。
+     * @param nodeTree
+     */
+    public void iteratorBehind2(NodeTree nodeTree){
+        Stack<NodeTree> stack = new Stack<>();
+        Stack<NodeTree> output = new Stack<>();//构造一个中间栈来存储逆后序遍历的结果
+        NodeTree node = root;
+        while (node != null || !stack.isEmpty()) {
+            if (node != null) {
+                output.push(node);
+                stack.push(node);
+                node = node.right;
+            } else {
+                node = stack.pop();
+                node = node.left;
+            }
+        }
+        System.out.println(output.size());
+        while (output.size() > 0) {
+
+            System.out.println(output.pop().data);
+        }
     }
 
 }

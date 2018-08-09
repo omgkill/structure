@@ -1,5 +1,6 @@
 package com.orange.structure;
 
+import com.orange.structure.binary_sort.BinarySort;
 import com.orange.structure.binary_tree.IterateTree;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,14 +19,20 @@ public class StructureApplicationTests {
 
 	@Test
     public void testIterator() {
-        TreeSet<String> set  = new TreeSet<>();
-        String[] strArray = new String[]{"dd", "fds", "ee", "rr", "ll", "mm", "bb", "cc"};
-        List list = Arrays.asList(strArray);
-        set.addAll(list);
-        TreeMap<String, String> map = new TreeMap<>();
-        for(Map.Entry entry : map.entrySet()){
-
-        }
+//        TreeSet<String> set  = new TreeSet<>();
+//        String[] strArray = new String[]{"dd", "fds", "ee", "rr", "ll", "mm", "bb", "cc"};
+//        List list = Arrays.asList(strArray);
+//        set.addAll(list);
+//        TreeMap<String, String> map = new TreeMap<>();
+//        for(Map.Entry entry : map.entrySet()){
+//
+//        }
+        new IterateTree().iteratorBehind2(new IterateTree().root);
         new IterateTree().iteratorBehind(new IterateTree().root);
+    }
+
+    @Test
+    public void TestBinarySort(){
+	    new BinarySort().iterator();
     }
 }
