@@ -17,6 +17,10 @@ public class BinarySort {
      */
     public void iterator() {
 
+        /**
+         * 冒泡排序的思想，每一个与后面进行比较，如果大于后面，就更换
+         * 这个为什么用length-1, 因为要与后一个进行比较
+         */
         for(int i = integer.length - 1; i> 0; i--) {
             for( int l =0; l < i; l++) {
                 if(integer[l] > integer[l+1]) {
