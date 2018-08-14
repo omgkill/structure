@@ -3,6 +3,7 @@ package com.orange.structure;
 import com.orange.structure.binary_sort.BinarySort;
 import com.orange.structure.binary_tree.IterateTree;
 import com.orange.structure.快速排序.QuickSort;
+import com.orange.structure.插入排序.InsertSort;
 import com.orange.structure.选择排序.SelectSort;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -46,5 +47,10 @@ public class StructureApplicationTests {
     @Test
     public void TestQuickSort(){
         new QuickSort().mytest();
+    }
+
+    @Test
+    public void TestInsertSort(){
+	    new InsertSort().sort();
     }
 }

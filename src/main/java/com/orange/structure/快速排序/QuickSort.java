@@ -4,9 +4,14 @@ import java.util.Arrays;
 
 public class QuickSort {
 
+    /**
+     * 快速排序
+     *
+     * http://blog.51cto.com/flyingcat2013/1281614
+     */
 
     Integer[] integer = new Integer[]{3, 344,55,566,224,45,3,43,2,2,4,552,244,3,4,6};
-
+    private int number = 1;
 
     public int QuickSortM(Integer[] integer, int start, int end) {
 //        int start = 0 ;
@@ -45,9 +50,11 @@ public class QuickSort {
         sort(array,lo,index-1);
         System.out.println("-----------------" + index);
         sort(array,index+1,hi);
+        number ++;
     }
     public void mytest(){
 
         sort(integer,0 , integer.length-1);
+        System.out.println(number);
     }
 }
