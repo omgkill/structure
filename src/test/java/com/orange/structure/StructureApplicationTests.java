@@ -2,6 +2,7 @@ package com.orange.structure;
 
 import com.orange.structure.binary_sort.BinarySort;
 import com.orange.structure.binary_tree.IterateTree;
+import com.orange.structure.归并排序.MergeSort;
 import com.orange.structure.快速排序.QuickSort;
 import com.orange.structure.插入排序.InsertSort;
 import com.orange.structure.选择排序.SelectSort;
@@ -52,5 +53,17 @@ public class StructureApplicationTests {
     @Test
     public void TestInsertSort(){
 	    new InsertSort().sort();
+    }
+
+    @Test
+    public void TestMerageSort(){
+
+        Integer[] integer = new Integer[]{2, 2, 3, 3, 3, 4, 4, 6, 43, 45, 55, 224, 244, 344, 552, 566};
+        Integer[] integer2 = new Integer[]{1,2,3,4,5,6,7,8,9,10};
+        Integer[] integer3 = new Integer[26];
+//        new MergeSort().sort2(integer2, integer, integer3);
+//        new MergeSort().sort2(integer, integer2, integer3);
+
+        //internalMergeSort
     }
 }
