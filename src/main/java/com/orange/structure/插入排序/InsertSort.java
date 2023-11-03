@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 /**
  * 插入排序
+ * 1. 当前数，插入到前面有序的集合中
+ *
+ *
  */
 public class InsertSort {
 

@@ -19,7 +19,7 @@ public class QuickSort {
         Integer key = integer[start];
         while(start < end) {
 
-            /**
+            /*
              * 从后往前查找第一个比key小的值，然后放到start
              */
             while(integer[end] >= key && (end > start)) {
@@ -27,7 +27,7 @@ public class QuickSort {
             }
             integer[start] = integer[end];
             System.out.println(Arrays.toString(integer));
-            /**
+            /*
              * 从前往后找第一个比key大的值，然后放到end处
              */
             while(integer[start] <= key && (end > start)) {

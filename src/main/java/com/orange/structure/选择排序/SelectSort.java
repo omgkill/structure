@@ -2,6 +2,14 @@ package com.orange.structure.选择排序;
 
 import java.util.Arrays;
 
+/**
+ * 选择排序思想
+ * 1. 就是找到第一个最小的值
+ * 2. 再找到第二个最小的值
+ *
+ * 空间复杂度： 2n
+ * 时间复杂度： O(N^2)
+ */
 public class SelectSort {
 
 
